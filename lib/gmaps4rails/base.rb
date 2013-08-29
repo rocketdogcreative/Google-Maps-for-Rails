@@ -32,11 +32,18 @@ module Gmaps4rails
   # * address: string, mandatory
   # * lang: to set the language one wants the result to be translated (default is english)
   # * raw: to get the raw response from google, default is false
-  def Gmaps4rails.geocode(address, lang="en", raw = false, protocol = "http")
+  # * sensor: if using a "sensor" (such as a GPS locator) to determine the user's location this should be true, default is false
+  # * client, crypto: only for use by enterprise customers, crypto_key != api_key
+  # * client: if using enterprise version the request must include the client parameter
+  # * crypto: if using the enterprise version the request must be signed using the crypto_key, the crypto_key will not be part of the request
+  def Gmaps4rails.geocode(address, lang="en", raw = false, protocol = "http", sensor = false, client = "", crypto = "")
     ::Gmaps4rails::Geocoder.new(address, {
       :language => lang, 
       :raw      => raw,
-      :protocol => protocol
+      :protocol => protocol,
+      :sensor => sensor,
+      :client => client,
+      :crypto => crypto
     }).get_coordinates
   end
   
@@ -125,5 +132,5 @@ module Gmaps4rails
     assets = Rails.configuration.assets
     assets.enabled.nil? || assets.enabled
   end
-
+  
 end
