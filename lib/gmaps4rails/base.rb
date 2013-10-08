@@ -57,8 +57,6 @@ module Gmaps4rails
       :sensor => sensor,
       :output => output,
       :types => types,
-      :location => location,
-      :radius => radius
     }).get_predictions
   end
   
