@@ -16,7 +16,6 @@ module Gmaps4rails
       @sensor   = options[:sensor]   || false
       @output   = options[:output]   || "json"
       @types    = options[:types]    || ""
-      @location = options[:location] || ""
       @radius   = options[:radius]   || ""
       raise "You must provide an API key" if @key.blank?
     end
@@ -47,9 +46,9 @@ module Gmaps4rails
     def base_request
       # Check that crypto key was not included
       if @output == "json"
-        "#{protocol}://maps.googleapis.com/maps/api/place/autocomplete/json?input=#{input}&sensor=#{sensor}&language=#{language}&key=#{key}&raw=#{raw}&location=#{location}&radius=#{radius}&types=#{types}"
+        "#{protocol}://maps.googleapis.com/maps/api/place/autocomplete/json?input=#{input}&sensor=#{sensor}&language=#{language}&key=#{key}&raw=#{raw}&radius=#{radius}&types=#{types}"
       else
-        "#{protocol}://maps.googleapis.com/maps/api/place/autocomplete/xml?input=#{input}&sensor=#{sensor}&language=#{language}&key=#{key}&raw=#{raw}&location=#{location}&radius=#{radius}&types=#{types}"
+        "#{protocol}://maps.googleapis.com/maps/api/place/autocomplete/xml?input=#{input}&sensor=#{sensor}&language=#{language}&key=#{key}&raw=#{raw}&radius=#{radius}&types=#{types}"
       end
     end
 
