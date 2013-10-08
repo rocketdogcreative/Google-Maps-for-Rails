@@ -20,6 +20,7 @@ module Gmaps4rails
   autoload :Geocoder,         'gmaps4rails/api_wrappers/geocoder'
   autoload :Direction,        'gmaps4rails/api_wrappers/direction'
   autoload :Places,           'gmaps4rails/api_wrappers/places'
+  autoload :Autocomplete,     'gmaps4rails/api_wrappers/autocomplete'
   autoload :ObjectAccessor,   'gmaps4rails/object_accessor'
 
   mattr_accessor :http_proxy, :escape_js_url, :script_block
@@ -45,6 +46,20 @@ module Gmaps4rails
       :client => client,
       :crypto => crypto
     }).get_coordinates
+  end
+
+  def Gmaps4rails.autocomplete(input, lang="en", raw = false, protocol = "http", sensor = false, key = "", output = "", types = "", location = "", radius = "")
+    ::Gmaps4rails::Autocomplete.new(input, {
+      :language => lang,
+      :raw      => raw,
+      :protocol => protocol,
+      :sensor => sensor,
+      :key => key,
+      :output => output,
+      :types => types,
+      :location => location,
+      :radius => radius
+    }).get_predictions
   end
   
   def Gmaps4rails.create_json(object, &block)
