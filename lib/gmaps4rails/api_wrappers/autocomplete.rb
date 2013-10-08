@@ -9,11 +9,11 @@ module Gmaps4rails
       raise "You must provide a starting reference" if input.blank?
 
       @input  = input
+      @key      = options[:key]
       @language = options[:language] || "en"
       @raw      = options[:raw]      || false
       @protocol = options[:protocol] || "http"
       @sensor   = options[:sensor]   || false
-      @key      = options[:key]
       @output   = options[:output]   || "json"
       @types    = options[:types]    || ""
       @location = options[:location] || ""

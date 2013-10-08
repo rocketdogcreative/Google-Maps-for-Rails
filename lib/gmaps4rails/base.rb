@@ -48,13 +48,13 @@ module Gmaps4rails
     }).get_coordinates
   end
 
-  def Gmaps4rails.autocomplete(input, lang="en", raw = false, protocol = "http", sensor = false, key = "", output = "", types = "", location = "", radius = "")
+  def Gmaps4rails.autocomplete(input, key = "", lang="en", raw = false, protocol = "http", sensor = false, output = "", types = "", location = "", radius = "")
     ::Gmaps4rails::Autocomplete.new(input, {
+      :key => key,
       :language => lang,
       :raw      => raw,
       :protocol => protocol,
       :sensor => sensor,
-      :key => key,
       :output => output,
       :types => types,
       :location => location,
