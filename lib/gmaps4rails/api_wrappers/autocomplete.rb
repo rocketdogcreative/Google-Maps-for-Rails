@@ -44,9 +44,9 @@ module Gmaps4rails
     def base_request
       # Check that crypto key was not included
       if @output == "json"
-        "#{protocol}://maps.googleapis.com/maps/api/place/autocomplete/json?input=#{input}&sensor=#{sensor}&language=#{language}&key=#{key}&raw=#{raw}&types=#{types}"
+        "#{protocol}://maps.googleapis.com/maps/api/place/autocomplete/json?input=#{input}&sensor=#{sensor}&language=#{language}&key=#{key}&raw=#{raw}"
       else
-        "#{protocol}://maps.googleapis.com/maps/api/place/autocomplete/xml?input=#{input}&sensor=#{sensor}&language=#{language}&key=#{key}&raw=#{raw}&types=#{types}"
+        "#{protocol}://maps.googleapis.com/maps/api/place/autocomplete/xml?input=#{input}&sensor=#{sensor}&language=#{language}&key=#{key}&raw=#{raw}"
       end
     end
 
