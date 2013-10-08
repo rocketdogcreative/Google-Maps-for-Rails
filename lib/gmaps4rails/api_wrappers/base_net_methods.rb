@@ -33,6 +33,7 @@ module Gmaps4rails
     def get_response
       url = URI.parse(base_url)
       http = Gmaps4rails.http_agent
+      http.use_ssl = true if url =~ /^https/
       http.get_response(url)
     end
     
