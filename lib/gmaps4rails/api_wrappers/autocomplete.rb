@@ -3,7 +3,7 @@ module Gmaps4rails
   class Autocomplete
     include BaseNetMethods
 
-    attr_reader :input, :language, :raw, :protocol, :sensor, :key, :output
+    attr_reader :input, :key, :language, :raw, :protocol, :sensor, :output
 
     def initialize(input, options = {})
       raise "You must provide a starting reference" if input.blank?
