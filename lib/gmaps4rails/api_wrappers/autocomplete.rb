@@ -15,7 +15,6 @@ module Gmaps4rails
       @protocol = options[:protocol] || "http"
       @sensor   = options[:sensor]   || false
       @output   = options[:output]   || "json"
-      @types    = options[:types]    || ""
       raise "You must provide an API key" if @key.blank?
     end
 

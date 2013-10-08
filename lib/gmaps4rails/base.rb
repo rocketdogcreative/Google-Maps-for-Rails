@@ -55,8 +55,7 @@ module Gmaps4rails
       :raw      => raw,
       :protocol => protocol,
       :sensor => sensor,
-      :output => output,
-      :types => types,
+      :output => output
     }).get_predictions
   end
   
