@@ -6,7 +6,7 @@ module Gmaps4rails
     attr_reader :input, :language, :raw, :protocol, :sensor, :key, :output
 
     def initialize(input, options = {})
-      raise Gmaps4rails::AutocompleteInvalidQuery, "You must provide a starting reference" if input.blank?
+      raise "You must provide a starting reference" if input.blank?
 
       @input  = input
       @language = options[:language] || "en"
@@ -18,7 +18,7 @@ module Gmaps4rails
       @types    = options[:types]    || ""
       @location = options[:location] || ""
       @radius   = options[:radius]   || ""
-      raise Gmaps4rails::AutocompleteInvalidQuery, "You must provide an API key" if @key.blank?
+      raise "You must provide an API key" if @key.blank?
     end
 
     # returns an array of hashes with the following keys:
