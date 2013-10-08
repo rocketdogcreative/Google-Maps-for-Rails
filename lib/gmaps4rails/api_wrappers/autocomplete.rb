@@ -51,11 +51,11 @@ module Gmaps4rails
     end
 
     def raise_net_status
-      raise Gmaps4rails::AutocompleteNetStatus, "The request sent to google was invalid (not http success): #{base_request}.\nResponse was: #{response}"
+      raise "The request sent to google was invalid (not http success): #{base_request}.\nResponse was: #{response}"
     end
 
     def raise_query_error
-      raise Gmaps4rails::AutocompleteStatus, "The address you passed seems invalid, status was: #{parsed_response["status"]}.\nRequest was: #{base_request}"
+      raise "The address you passed seems invalid, status was: #{parsed_response["status"]}.\nRequest was: #{base_request}"
     end
 
   end
