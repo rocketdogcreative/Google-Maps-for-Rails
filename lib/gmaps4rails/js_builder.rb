@@ -108,7 +108,7 @@ module Gmaps4rails
       
       def create_standard_js
         set_configuration_variables
-        @js << "#{@gmap_id}.add#{@name.capitalize}(#{data});"
+        @js << "#{@gmap_id}.add#{@name.capitalize}(#{@element_info.data});"
       end
 
       def create_direction_js
