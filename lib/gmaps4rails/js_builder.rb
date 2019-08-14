@@ -121,8 +121,8 @@ module Gmaps4rails
       end
 
       def set_configuration_variables
-        return unless options
-        options.each do |option_key, option_value|
+        return unless @element_info.options
+        @element_info.options.each do |option_key, option_value|
           @js << if option_key.to_sym == :raw
                    "#{@gmap_id}.#{@name}_conf.#{option_key} = #{option_value};"
                  else
@@ -132,8 +132,8 @@ module Gmaps4rails
       end
 
       def set_direction_variables
-        return unless options
-        options.each do |option_key, option_value|
+        return unless @element_info.options
+        @element_info.options.each do |option_key, option_value|
           if option_key.to_sym == :waypoints
             waypoints = Array.new
             option_value.each do |waypoint|
